@@ -1,0 +1,98 @@
+{
+  "info": {
+    "name": "Student Management API",
+    "description": "Collection of API endpoints for Student Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nom\": \"LACHGAR\",\n  \"prenom\": \"Mohamed\",\n  \"dateNaissance\": \"1985-09-01\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/students/save",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "save"]
+        },
+        "description": "Create a new student in the database"
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students/all",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "all"]
+        },
+        "description": "Retrieve all students from the database"
+      },
+      "response": []
+    },
+    {
+      "name": "Count Students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students/count",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "count"]
+        },
+        "description": "Get the total number of students"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Students by Year",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students/byYear",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "byYear"]
+        },
+        "description": "Get the number of students grouped by birth year"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Student",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students/delete/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "delete", "1"]
+        },
+        "description": "Delete a student by ID (change the ID in the URL)"
+      },
+      "response": []
+    }
+  ]
+}
