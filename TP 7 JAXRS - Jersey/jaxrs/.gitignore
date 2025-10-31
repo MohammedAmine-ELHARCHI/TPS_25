@@ -49,10 +49,6 @@ bin/
 .DS_Store
 Thumbs.db
 
-# Application properties (optional - uncomment if you have sensitive data)
-# application.properties
-# application-*.properties
-
 # H2 Database files
 *.db
 *.trace.db
@@ -62,7 +58,3 @@ Thumbs.db
 *.bak
 *.swp
 *~.nib
-
-# Docker
-.docker/
-docker-compose.override.yml
