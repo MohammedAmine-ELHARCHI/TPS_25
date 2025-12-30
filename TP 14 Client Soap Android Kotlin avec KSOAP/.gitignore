@@ -1,0 +1,29 @@
+# Android
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+app/build/
+
+# Maven (soap-service)
+soap-service/target/
+soap-service/*.log
+soap-service/.mvn/
+
+# IDE
+*.class
+*.jar
+!app/libs/*.jar
+*.war
+*.ear
+*.log
+
+# OS
+Thumbs.db
+*.swp

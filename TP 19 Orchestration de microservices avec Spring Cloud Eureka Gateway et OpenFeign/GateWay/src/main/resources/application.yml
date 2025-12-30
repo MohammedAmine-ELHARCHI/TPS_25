@@ -1,0 +1,46 @@
+# =============================================================================
+# Configuration des Routes de la Passerelle API (API Gateway)
+# =============================================================================
+# Ce fichier définit les règles de routage pour diriger les requêtes
+# entrantes vers les microservices appropriés via load balancing.
+#
+# Auteur: MOHAMMED AMINE ELHARCHI
+# Date: 2025-12-09
+# =============================================================================
+
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          # ===== ROUTE POUR LE SERVICE CLIENT =====
+          # Route les requêtes /clients vers le service client
+          - id: r1
+            uri: lb://SERVICE-CLIENT          # Load balancing vers SERVICE-CLIENT
+            predicates:
+              - Path=/clients                 # Chemin d'entrée: /clients
+
+          # Route les requêtes /client/{id} vers le service client
+          - id: r2
+            uri: lb://SERVICE-CLIENT          # Load balancing vers SERVICE-CLIENT
+            predicates:
+              - Path=/client/{id}             # Chemin d'entrée: /client/{id}
+
+          # ===== ROUTE POUR LE SERVICE VOITURE =====
+          # Route les requêtes /voitures vers le service voiture
+          - id: r3
+            uri: lb://SERVICE-VOITURE         # Load balancing vers SERVICE-VOITURE
+            predicates:
+              - Path=/voitures                # Chemin d'entrée: /voitures
+
+# ===== CONFIGURATION SUPPLÉMENTAIRE POSSIBLE =====
+# spring:
+#   cloud:
+#     gateway:
+#       routes:
+#         - id: r4
+#           uri: lb://SERVICE-VOITURE
+#           predicates:
+#             - Path=/voiture/{id}
+#           filters:
+#             - RewritePath=/voiture/(?<segment>.*), /$\{segment}

@@ -1,0 +1,13 @@
+# Kubernetes ConfigMap for Cloud Microservice Platform
+# Stores configuration data consumable by pods
+# Author: MOHAMMED AMINE ELHARCHI
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud-platform-config
+  namespace: cloud-platform
+  labels:
+    app: cloud-microservice
+    author: elharchi-mohammedamine
+data:
+  app.message: "Welcome from Kubernetes ConfigMap - Cloud Platform by MOHAMMED AMINE ELHARCHI"

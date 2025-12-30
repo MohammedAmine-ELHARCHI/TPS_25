@@ -1,0 +1,6 @@
+com\example\Voiture\services\ClientService.class
+com\example\Voiture\controllers\VoitureController.class
+com\example\Voiture\models\Client.class
+com\example\Voiture\entities\Voiture.class
+com\example\Voiture\repositories\VoitureRepository.class
+com\example\Voiture\VoitureApplication.class
