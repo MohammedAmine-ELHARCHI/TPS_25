@@ -1,0 +1,12 @@
+apiVersion: 1
+
+providers:
+  - name: 'REST Benchmark Dashboards'
+    orgId: 1
+    folder: 'REST Benchmark'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards

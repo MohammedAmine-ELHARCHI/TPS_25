@@ -1,0 +1,50 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Spring Boot applications metrics
+  - job_name: 'rest-benchmark-spring-mvc'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8081']
+    scrape_interval: 5s
+
+  - job_name: 'rest-benchmark-spring-data-rest'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8082']
+    scrape_interval: 5s
+
+  # Jersey application would need custom metrics endpoint
+  - job_name: 'rest-benchmark-jersey'
+    static_configs:
+      - targets: ['host.docker.internal:8080']
+    scrape_interval: 5s
+
+  # PostgreSQL exporter (optional)
+  - job_name: 'postgresql'
+    static_configs:
+      - targets: ['postgres-exporter:9187']
+    scrape_interval: 10s
+
+  # Node Exporter for system metrics
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+    scrape_interval: 10s
+
+# Storage configuration
+storage:
+  tsdb:
+    retention.time: 7d
+    retention.size: 10GB
